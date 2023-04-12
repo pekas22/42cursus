@@ -1,16 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pemontei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/12 20:25:29 by pemontei          #+#    #+#             */
-/*   Updated: 2023/04/12 20:25:35 by pemontei         ###   ########.fr       */
+/*   Created: 2023/04/12 20:29:21 by pemontei          #+#    #+#             */
+/*   Updated: 2023/04/12 20:38:36 by pemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalpha(int c)
+char *ft_strchr(const char *str, int c)
 {
-    return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (c == str[i])
+			return ((char*)&str[i]);
+		i++;
+	}
+	return (0);
+}
+#include <stdio.h>
+#include <string.h>
+
+int main () {
+   const char str[] = "http://www.tutorialspoint.com";
+   const char ch = '.';
+   char *ret;
+
+   ret = ft_strchr(str, ch);
+
+   printf("String after |%c| is - |%s|\n", ch, ret);
+
+   return(0);
 }
