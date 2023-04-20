@@ -10,35 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stddef.h>
+#include"libft.h"
 
-void *memchr(const void *str, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	i;
-	unsigned char	*string;
-
-	i = 0;
-	string = (unsigned char *)str;
-	while (string[i] && i < n)
-	{
-		if (string[i] == c)
-		{
-			return (void *)(string + i);
-		}
-	}
-	return (0);
+    unsigned char *str;
+    int i;
+    
+    i = 0;
+    str = (void *)s;
+    while (n > 0)
+    {
+        if (((unsigned char *)s)[i] == c)
+        {
+            return (&str[i]);
+        }
+        i++;
+        n--;
+    }
+    return (NULL);
 }
-#include <stdio.h>
-#include <string.h>
-
-int main () {
-   const char str[] = "http://www.tutorialspoint.com";
-   const char ch = '.';
-   char *ret;
-
-   ret = ft_memchr(str, ch, strlen(str));
-
-   printf("String after |%c| is - |%s|\n", ch, ret);
-
-   return(0);
-}*/
